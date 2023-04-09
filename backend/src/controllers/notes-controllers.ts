@@ -1,6 +1,5 @@
 import { RequestHandler } from "express";
 import NoteModel from "../models/note";
-import { json } from "envalid";
 
 export const getNotes: RequestHandler = async (req, res, next) => {
   try {

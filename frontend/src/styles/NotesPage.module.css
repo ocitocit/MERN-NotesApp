@@ -7,3 +7,13 @@
 .note:hover {
   background-color: white;
 }
+
+.buttonAdd {
+  border: solid 1px;
+  border-bottom: 3px solid;
+}
+
+.buttonAdd:hover {
+  border: solid 1px;
+  border-bottom: 3px solid;
+}

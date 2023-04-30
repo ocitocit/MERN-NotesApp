@@ -1,7 +1,5 @@
 .noteCard {
   background-color: cornsilk;
-  border: 1px solid #020202;
-  border-bottom: 4px solid #020202;
 }
 .cardBody {
   overflow: hidden;

@@ -1,0 +1,15 @@
+.blockCenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.borderList {
+  border: solid 1px;
+  border-bottom: 4px solid #020202;
+}
+
+.borderList:hover {
+  border: solid 1px;
+  border-bottom: 4px solid #020202;
+}

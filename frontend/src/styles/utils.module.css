@@ -13,3 +13,14 @@
   border: solid 1px;
   border-bottom: 4px solid #020202;
 }
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.minWidht {
+  min-width: 100%;
+}

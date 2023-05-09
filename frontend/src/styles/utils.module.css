@@ -4,6 +4,17 @@
   margin-right: auto;
 }
 
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.width100 {
+  width: 100%;
+}
+
 .borderList {
   border: solid 1px;
   border-bottom: 4px solid #020202;
@@ -12,13 +23,6 @@
 .borderList:hover {
   border: solid 1px;
   border-bottom: 4px solid #020202;
-}
-
-.flexCenter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
 }
 
 .minWidht {

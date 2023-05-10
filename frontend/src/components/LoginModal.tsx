@@ -29,7 +29,7 @@ const LoginModal = ({ onDismiss, onLoginSuccessful }: LoginModalProps) => {
   }
 
   return (
-    <Modal show onDismiss={onDismiss}>
+    <Modal show onHide={onDismiss}>
       <Modal.Header closeButton>
         <Modal.Title>Log In</Modal.Title>
       </Modal.Header>

@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { Button, Col, Row, Spinner } from "react-bootstrap";
-import { FaPlus } from "react-icons/fa";
-import { Note as NoteModel } from "../../models/note";
-import * as NotesApi from "../../network/notes_api";
-import styles from "../../styles/NotesPage.module.css";
-import styleUtils from "../../styles/utils.module.css";
-import AddEditNoteModal from "../AddEditNoteModal";
-import Note from "../Note";
+import { useEffect, useState } from 'react';
+import { Button, Col, Row, Spinner } from 'react-bootstrap';
+import { FaPlus } from 'react-icons/fa';
+import { Note as NoteModel } from '../models/note';
+import * as NotesApi from '../network/notes_api';
+import styles from '../styles/NotesPage.module.css';
+import styleUtils from '../styles/utils.module.css';
+import AddEditNoteModal from './AddEditNoteModal';
+import Note from './Note';
 
 const NotesPageLoggedInView = () => {
   const [notes, setNotes] = useState<NoteModel[]>([]);
@@ -67,13 +67,9 @@ const NotesPageLoggedInView = () => {
         <FaPlus /> Add Note
       </Button>
       {notesLoading && <Spinner animation="border" variant="primary" />}
-      {showNotesLoadingError && (
-        <p>Something went wrong. Please reload the page</p>
-      )}
+      {showNotesLoadingError && <p>Something went wrong. Please reload the page</p>}
       {!notesLoading && !showNotesLoadingError && (
-        <>
-          {notes.length > 0 ? notesGrid : <p>You don't have any notes yet</p>}
-        </>
+        <>{notes.length > 0 ? notesGrid : <p>You don't have any notes yet</p>}</>
       )}
 
       {showAddNoteModal && (
@@ -92,9 +88,7 @@ const NotesPageLoggedInView = () => {
           onNoteSaved={(updatedNote) => {
             setNotes(
               notes.map((existingNote) =>
-                existingNote._id === updatedNote._id
-                  ? updatedNote
-                  : existingNote
+                existingNote._id === updatedNote._id ? updatedNote : existingNote
               )
             );
             setNoteToEdit(null);

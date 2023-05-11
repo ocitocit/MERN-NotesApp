@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import LoginModal from "./components/LoginModal";
-import NavBar from "./components/NavBar";
-import SignUpModal from "./components/SignUpModal";
-import { User } from "./models/user";
-import styles from "./styles/NotesPage.module.css";
-import * as NotesApi from "./network/notes_api";
-import NotesPageLoggedInView from "./components/pages/NotesPageLoggedInView";
-import NoteLoggedOutView from "./components/pages/NoteLoggedOutView";
+import { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LoginModal from './components/LoginModal';
+import NavBar from './components/NavBar';
+import NotesPage from './components/pages/NotesPage';
+import NotFoundPage from './components/pages/NotFoundPage';
+import PrivacyPage from './components/pages/PrivacyPage';
+import SignUpModal from './components/SignUpModal';
+import { User } from './models/user';
+import * as NotesApi from './network/notes_api';
+import styles from './styles/App.module.css';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
@@ -28,7 +30,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <BrowserRouter>
       <NavBar
         loggedInUser={loggedInUser}
         onLoginClicked={() => setShowLoginModal(true)}
@@ -36,8 +38,12 @@ function App() {
         onLogoutSuccessful={() => setLoggedInUser(null)}
       />
 
-      <Container className={styles.notesPage}>
-        <>{loggedInUser ? <NotesPageLoggedInView /> : <NoteLoggedOutView />}</>
+      <Container className={styles.pageContainer}>
+        <Routes>
+          <Route path="/" element={<NotesPage loggedInUser={loggedInUser} />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/*" element={<NotFoundPage />} />
+        </Routes>
       </Container>
 
       {showSignUpModal && (
@@ -58,7 +64,7 @@ function App() {
           }}
         />
       )}
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -1,10 +1,10 @@
-import { useForm } from "react-hook-form";
-import { User } from "../models/user";
-import { LoginCredentials } from "../network/notes_api";
-import * as NotesApi from "../network/notes_api";
-import { Button, Form, Modal } from "react-bootstrap";
-import TextInputField from "./form/TextInputField";
-import styleUtils from "../styles/utils.module.css";
+import { useForm } from 'react-hook-form';
+import { User } from '../models/user';
+import { LoginCredentials } from '../network/notes_api';
+import * as NotesApi from '../network/notes_api';
+import { Button, Form, Modal } from 'react-bootstrap';
+import TextInputField from './form/TextInputField';
+import styleUtils from '../styles/utils.module.css';
 
 interface LoginModalProps {
   onDismiss: () => void;
@@ -15,7 +15,7 @@ const LoginModal = ({ onDismiss, onLoginSuccessful }: LoginModalProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting }
   } = useForm<LoginCredentials>();
 
   async function onSubmit(credentials: LoginCredentials) {
@@ -42,7 +42,7 @@ const LoginModal = ({ onDismiss, onLoginSuccessful }: LoginModalProps) => {
             type="text"
             placeholder="Username"
             register={register}
-            registerOption={{ required: "Required" }}
+            registerOption={{ required: 'Required' }}
             error={errors.username}
           />
           <TextInputField
@@ -51,14 +51,10 @@ const LoginModal = ({ onDismiss, onLoginSuccessful }: LoginModalProps) => {
             type="password"
             placeholder="Password"
             register={register}
-            registerOption={{ required: "Required" }}
+            registerOption={{ required: 'Required' }}
             error={errors.password}
           />
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className={styleUtils.width100}
-          >
+          <Button type="submit" disabled={isSubmitting} className={styleUtils.width100}>
             Log In
           </Button>
         </Form>

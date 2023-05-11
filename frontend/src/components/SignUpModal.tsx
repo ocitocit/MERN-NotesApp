@@ -1,10 +1,10 @@
-import { useForm } from "react-hook-form";
-import { User } from "../models/user";
-import { SignUpCredentials } from "../network/notes_api";
-import * as NotesApi from "../network/notes_api";
-import TextInputField from "./form/TextInputField";
-import { Button, Form, Modal } from "react-bootstrap";
-import styleUtils from "../styles/utils.module.css";
+import { useForm } from 'react-hook-form';
+import { User } from '../models/user';
+import { SignUpCredentials } from '../network/notes_api';
+import * as NotesApi from '../network/notes_api';
+import TextInputField from './form/TextInputField';
+import { Button, Form, Modal } from 'react-bootstrap';
+import styleUtils from '../styles/utils.module.css';
 
 interface SignUpModalProps {
   onDismiss: () => void;
@@ -15,7 +15,7 @@ const SignUpModal = ({ onDismiss, onSignUpSuccessful }: SignUpModalProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting }
   } = useForm<SignUpCredentials>();
 
   async function onSubmit(credentials: SignUpCredentials) {
@@ -42,7 +42,7 @@ const SignUpModal = ({ onDismiss, onSignUpSuccessful }: SignUpModalProps) => {
             type="text"
             placeholder="Username"
             register={register}
-            registerOption={{ required: "Required" }}
+            registerOption={{ required: 'Required' }}
             error={errors.username}
           />
           <TextInputField
@@ -51,7 +51,7 @@ const SignUpModal = ({ onDismiss, onSignUpSuccessful }: SignUpModalProps) => {
             type="email"
             placeholder="Email"
             register={register}
-            registerOption={{ required: "Required" }}
+            registerOption={{ required: 'Required' }}
             error={errors.email}
           />
           <TextInputField
@@ -60,14 +60,10 @@ const SignUpModal = ({ onDismiss, onSignUpSuccessful }: SignUpModalProps) => {
             type="password"
             placeholder="Password"
             register={register}
-            registerOption={{ required: "Required" }}
+            registerOption={{ required: 'Required' }}
             error={errors.password}
           />
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className={styleUtils.width100}
-          >
+          <Button type="submit" disabled={isSubmitting} className={styleUtils.width100}>
             Sign Up
           </Button>
         </Form>

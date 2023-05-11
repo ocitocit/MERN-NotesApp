@@ -1,9 +1,9 @@
-import { Button, Form, Modal } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import { Note } from "../models/note";
-import { NoteInput } from "../network/notes_api";
-import * as NotesApi from "../network/notes_api";
-import TextInputField from "./form/TextInputField";
+import { Button, Form, Modal } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import { Note } from '../models/note';
+import { NoteInput } from '../network/notes_api';
+import * as NotesApi from '../network/notes_api';
+import TextInputField from './form/TextInputField';
 
 interface addEditNoteDialogProps {
   noteToEdit?: Note;
@@ -11,20 +11,16 @@ interface addEditNoteDialogProps {
   onNoteSaved: (note: Note) => void;
 }
 
-const AddEditNoteModal = ({
-  noteToEdit,
-  onDismiss,
-  onNoteSaved,
-}: addEditNoteDialogProps) => {
+const AddEditNoteModal = ({ noteToEdit, onDismiss, onNoteSaved }: addEditNoteDialogProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting }
   } = useForm<NoteInput>({
     defaultValues: {
-      title: noteToEdit?.title || "",
-      text: noteToEdit?.text || "",
-    },
+      title: noteToEdit?.title || '',
+      text: noteToEdit?.text || ''
+    }
   });
 
   async function onSubmit(input: NoteInput) {
@@ -45,7 +41,7 @@ const AddEditNoteModal = ({
   return (
     <Modal show onHide={onDismiss}>
       <Modal.Header closeButton>
-        <Modal.Title>{noteToEdit ? "Edit Note" : "Add New Note"}</Modal.Title>
+        <Modal.Title>{noteToEdit ? 'Edit Note' : 'Add New Note'}</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
@@ -56,7 +52,7 @@ const AddEditNoteModal = ({
             type="text"
             placeholder="Title"
             register={register}
-            registerOption={{ required: "Required" }}
+            registerOption={{ required: 'Required' }}
             error={errors.title}
           />
 

@@ -1,7 +1,8 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
-import { User } from "../models/user";
-import NavBarLoggedInView from "./NavBarLoggedInView";
-import NavBarLoggedOutView from "./NavBarLoggedOutView";
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { User } from '../models/user';
+import NavBarLoggedInView from './NavBarLoggedInView';
+import NavBarLoggedOutView from './NavBarLoggedOutView';
 
 interface NavBarProps {
   loggedInUser: User | null;
@@ -14,20 +15,23 @@ const NavBar = ({
   loggedInUser,
   onSignUpClicked,
   onLoginClicked,
-  onLogoutSuccessful,
+  onLogoutSuccessful
 }: NavBarProps) => {
   return (
     <Navbar bg="primary" variant="dark" expand="sm" sticky="top">
       <Container>
-        <Navbar.Brand>Simple Notes</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          Simple Notes
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="main-navbar" />
         <Navbar.Collapse id="main-navbar">
+          <Nav.Link as={Link} to="/privacy">
+            Privacy
+          </Nav.Link>
+
           <Nav className="ms-auto">
             {loggedInUser ? (
-              <NavBarLoggedInView
-                user={loggedInUser}
-                onLogoutSuccessful={onLogoutSuccessful}
-              />
+              <NavBarLoggedInView user={loggedInUser} onLogoutSuccessful={onLogoutSuccessful} />
             ) : (
               <NavBarLoggedOutView
                 onLoginClicked={onLoginClicked}

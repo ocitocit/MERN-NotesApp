@@ -1,16 +1,13 @@
-import { Button, Navbar } from "react-bootstrap";
-import { User } from "../models/user";
-import * as NotesApi from "../network/notes_api";
+import { Button, Navbar } from 'react-bootstrap';
+import { User } from '../models/user';
+import * as NotesApi from '../network/notes_api';
 
 interface NavBarLoggedInViewProps {
   user: User;
   onLogoutSuccessful: () => void;
 }
 
-const NavBarLoggedInView = ({
-  user,
-  onLogoutSuccessful,
-}: NavBarLoggedInViewProps) => {
+const NavBarLoggedInView = ({ user, onLogoutSuccessful }: NavBarLoggedInViewProps) => {
   async function logout() {
     try {
       await NotesApi.logout();

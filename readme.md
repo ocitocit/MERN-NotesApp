@@ -2,6 +2,12 @@
 
 This is simple Note app that can make your life easier, (I thought so :stuck_out_tongue_closed_eyes:)
 
+# Table of contents
+
+- [Screenshots](#screenshots)
+- [Features](#features)
+- [Usage](#setup-mongo)
+
 ## Screenshots
 
 ![Note App Screenshot](./screenshot/screenshot-1.png)
@@ -126,7 +132,7 @@ Start the BackEnd server
 ```
 
 go back to frontend dir
-Start the BackEnd server
+Start the FrontEnd server
 
 ```bash
   yarn dev
